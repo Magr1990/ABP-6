@@ -1,0 +1,95 @@
+================================================================================
+GUÍA DE INSTALACIÓN Y USO - GESTOR DE TAREAS (ABP 6)
+================================================================================
+
+1. REQUISITOS PREVIOS
+---------------------
+- Python 3.10 o superior instalado.
+- Git instalado.
+
+2. INSTALACIÓN
+--------------
+
+Paso 1: Clonar el repositorio (si no lo has hecho)
+   Abre tu terminal y ejecuta:
+   git clone https://github.com/MAGR1990/ABP-6.git
+   cd "ABP 6"
+
+Paso 2: Crear un entorno virtual
+   Windows:
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   macOS/Linux:
+   python3 -m venv venv
+   source venv/bin/activate
+
+Paso 3: Instalar dependencias
+   pip install -r requirements.txt
+
+Paso 4: Configurar la base de datos
+   python manage.py migrate
+
+Paso 5: Crear un usuario administrador
+   python manage.py createsuperuser
+   (Sigue las instrucciones en pantalla para usuario y contraseña)
+
+3. EJECUCIÓN
+------------
+   python manage.py runserver
+
+   Abre tu navegador en: http://127.0.0.1:8000/
+
+================================================================================
+DIAGRAMA DE FLUJO DE LA APLICACIÓN
+================================================================================
+
+Este diagrama representa el flujo de interacción del usuario dentro del sistema.
+
+[ INICIO ]
+    |
+    v
+¿Usuario Autenticado? ---- NO ----> [ PÁGINA DE INICIO ]
+    |                                     |
+    SI                                    v
+    |                           [ LOGIN / REGISTRO ]
+    |                                     |
+    v                                     |
+[ DASHBOARD ] <---------------------------+
+    |
+    +---> [ GESTIÓN DE PROYECTOS ]
+    |       |
+    |       +---> Ver Lista de Proyectos
+    |       +---> Crear Nuevo Proyecto
+    |       +---> Ver Detalle de Proyecto
+    |       +---> Editar / Eliminar Proyecto
+    |
+    +---> [ GESTIÓN DE TAREAS ]
+    |       |
+    |       +---> Ver Lista de Tareas (Filtros: Todas, Mis Tareas, Creadas por mí)
+    |       +---> Crear Nueva Tarea
+    |               |
+    |               +---> Asignar a Usuario
+    |               +---> Definir Prioridad y Fecha Límite
+    |       +---> Editar Tarea (Estado, Detalles)
+    |       +---> Eliminar Tarea
+    |
+    +---> [ PERFIL ]
+            |
+            +---> Cerrar Sesión
+            |
+            v
+        [ INICIO ]
+
+================================================================================
+GENERAR IMAGEN DEL DIAGRAMA
+================================================================================
+
+Se ha incluido un archivo llamado 'diagrama_flujo.mmd' con el código fuente del
+diagrama en formato Mermaid.
+
+Para generar la imagen:
+1. Abre el archivo 'diagrama_flujo.mmd'.
+2. Copia su contenido.
+3. Pégalo en el editor online: https://mermaid.live/
+4. Descarga la imagen en formato PNG o SVG.

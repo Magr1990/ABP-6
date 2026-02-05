@@ -1,0 +1,26 @@
+flowchart TD
+    Start([INICIO]) --> Auth{¿Usuario Autenticado?}
+    
+    Auth -- NO --> Home[PÁGINA DE INICIO]
+    Home --> Login[LOGIN / REGISTRO]
+    Login --> Dashboard[DASHBOARD]
+    
+    Auth -- SI --> Dashboard
+    
+    Dashboard --> Projects[GESTIÓN DE PROYECTOS]
+    Projects --> P_List[Ver Lista de Proyectos]
+    Projects --> P_Create[Crear Nuevo Proyecto]
+    Projects --> P_Detail[Ver Detalle de Proyecto]
+    Projects --> P_Edit[Editar / Eliminar Proyecto]
+    
+    Dashboard --> Tasks[GESTIÓN DE TAREAS]
+    Tasks --> T_List[Ver Lista de Tareas]
+    Tasks --> T_Create[Crear Nueva Tarea]
+    T_Create --> T_Assign[Asignar a Usuario]
+    T_Create --> T_Priority[Definir Prioridad y Fecha]
+    Tasks --> T_Edit[Editar Tarea]
+    Tasks --> T_Delete[Eliminar Tarea]
+    
+    Dashboard --> Profile[PERFIL]
+    Profile --> Logout[Cerrar Sesión]
+    Logout --> Start
