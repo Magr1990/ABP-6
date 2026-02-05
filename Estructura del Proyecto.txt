@@ -1,0 +1,36 @@
+taskmanager_project/
+├── manage.py
+├── requirements.txt
+├── README.md
+├── taskmanager/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── tasks/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   └── templates/
+│       └── tasks/
+│           ├── base.html
+│           ├── home.html
+│           ├── register.html
+│           ├── login.html
+│           ├── project_list.html
+│           ├── project_form.html
+│           ├── project_detail.html
+│           ├── task_list.html
+│           ├── task_form.html
+│           └── task_detail.html
+└── static/
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── main.js

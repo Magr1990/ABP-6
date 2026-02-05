@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white">Confirmar Eliminación</div>
+            <div class="card-body">
+                <p>¿Estás seguro de que deseas eliminar la tarea <strong>{{ task.title }}</strong>?</p>
+                <p class="text-danger"><small>Esta acción no se puede deshacer.</small></p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'task_list' %}" class="btn btn-secondary me-md-2">Cancelar</a>
+                        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
