@@ -85,11 +85,29 @@ Este diagrama representa el flujo de interacción del usuario dentro del sistema
 GENERAR IMAGEN DEL DIAGRAMA
 ================================================================================
 
-Se ha incluido un archivo llamado 'diagrama_flujo.mmd' con el código fuente del
-diagrama en formato Mermaid.
+Copia el siguiente código y pégalo en el editor online: https://mermaid.live/
 
-Para generar la imagen:
-1. Abre el archivo 'diagrama_flujo.mmd'.
-2. Copia su contenido.
-3. Pégalo en el editor online: https://mermaid.live/
-4. Descarga la imagen en formato PNG o SVG.
+graph TD
+    Start[INICIO] --> Auth{¿Usuario Autenticado?}
+    Auth -- NO --> Home[PÁGINA DE INICIO]
+    Home --> Login[LOGIN / REGISTRO]
+    Login --> Dashboard[DASHBOARD]
+    Auth -- SI --> Dashboard
+
+    Dashboard --> Projects[GESTIÓN DE PROYECTOS]
+    Projects --> PList[Ver Lista de Proyectos]
+    Projects --> PCreate[Crear Nuevo Proyecto]
+    Projects --> PDetail[Ver Detalle de Proyecto]
+    Projects --> PEdit[Editar / Eliminar Proyecto]
+
+    Dashboard --> Tasks[GESTIÓN DE TAREAS]
+    Tasks --> TList[Ver Lista de Tareas]
+    Tasks --> TCreate[Crear Nueva Tarea]
+    TCreate --> TAssign[Asignar a Usuario]
+    TCreate --> TDefine[Definir Prioridad y Fecha]
+    Tasks --> TEdit[Editar Tarea]
+    Tasks --> TDelete[Eliminar Tarea]
+
+    Dashboard --> Profile[PERFIL]
+    Profile --> Logout[Cerrar Sesión]
+    Logout --> Start

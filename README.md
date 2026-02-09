@@ -25,6 +25,10 @@ El objetivo principal es proporcionar una herramienta colaborativa donde los usu
     *   Los usuarios solo ven sus propios proyectos o los que tienen asignados.
     *   Validación para que solo el creador o asignado pueda editar.
 *   **Interfaz Gráfica**: Diseño responsivo y moderno utilizando **Bootstrap 5**.
+*   **Administración Avanzada**: Panel de control personalizado para gestionar usuarios, proyectos y tareas con filtros y búsquedas.
+*   **Calidad de Código**:
+    *   Validaciones robustas en modelos y formularios.
+    *   Pruebas unitarias integradas.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -33,6 +37,35 @@ El objetivo principal es proporcionar una herramienta colaborativa donde los usu
 *   **Base de Datos**: SQLite (por defecto en Django)
 *   **Frontend**: HTML5, CSS3, Bootstrap 5
 *   **Control de Versiones**: Git
+
+## 📊 Diagrama de Flujo
+
+```mermaid
+graph TD
+    Start[INICIO] --> Auth{¿Usuario Autenticado?}
+    Auth -- NO --> Home[PÁGINA DE INICIO]
+    Home --> Login[LOGIN / REGISTRO]
+    Login --> Dashboard[DASHBOARD]
+    Auth -- SI --> Dashboard
+
+    Dashboard --> Projects[GESTIÓN DE PROYECTOS]
+    Projects --> PList[Ver Lista de Proyectos]
+    Projects --> PCreate[Crear Nuevo Proyecto]
+    Projects --> PDetail[Ver Detalle de Proyecto]
+    Projects --> PEdit[Editar / Eliminar Proyecto]
+
+    Dashboard --> Tasks[GESTIÓN DE TAREAS]
+    Tasks --> TList[Ver Lista de Tareas]
+    Tasks --> TCreate[Crear Nueva Tarea]
+    TCreate --> TAssign[Asignar a Usuario]
+    TCreate --> TDefine[Definir Prioridad y Fecha]
+    Tasks --> TEdit[Editar Tarea]
+    Tasks --> TDelete[Eliminar Tarea]
+
+    Dashboard --> Profile[PERFIL]
+    Profile --> Logout[Cerrar Sesión]
+    Logout --> Start
+```
 
 ## ⚙️ Instalación y Configuración
 
